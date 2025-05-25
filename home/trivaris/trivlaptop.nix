@@ -3,9 +3,10 @@
   ... 
 }: { 
   
-  imports = [ 
-    ./home.nix 
-    ../common 
+  imports = [
+    ../common
+    ../features/cli
+    ./home.nix
   ]; 
 
 }
