@@ -36,7 +36,7 @@ with lib;
           "gpush" = "git push";
           "gclone" = "git clone";
 
-          "nix-rebuild" = "sudo nixos-rebuild switch --flake /home/trivaris/trivnix/#trivlaptop"
+          "nix-rebuild" = "sudo nixos-rebuild switch --flake /home/trivaris/trivnix/#trivlaptop";
         };
       };
     };
