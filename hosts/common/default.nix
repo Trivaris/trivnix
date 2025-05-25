@@ -13,7 +13,10 @@
 
   home-manager = {
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = { 
+      inherit inputs outputs; 
+      flakePath = toString ./../../;
+    };
     backupFileExtension = "backup";
   };
   
