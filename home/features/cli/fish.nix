@@ -37,8 +37,8 @@ with lib;
           "gclone" = "git clone";
 
           "nix-rebuild" = "sudo nixos-rebuild switch --flake /home/trivaris/trivnix/#trivlaptop"
-        }
-      }
-    }
+        };
+      };
+    };
 
 }
