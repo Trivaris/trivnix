@@ -21,6 +21,7 @@
 
   home.packages = with pkgs; [
     coreutils
+    httpie
     fd
     btop
     procs
