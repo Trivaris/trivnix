@@ -28,6 +28,6 @@
 
   };
   home-manager.users.trivaris =
-    import ./trivaris/${config.networking.hostName}.nix;
+    import ../../../home/trivaris/${config.networking.hostName}.nix;
 
 }
