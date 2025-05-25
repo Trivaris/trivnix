@@ -24,20 +24,17 @@ with lib;
         shellAbbrs = {
           ".." = "cd ..";
           "..." = "cd ../../";
-          
-          cd = "z";
-          ls = "eza";
-          grep = "rg";
-
           "gstat" = "git status --short";
           "gadd" = "git add";
           "gcomm" = "git commit -m ";
           "gpull" = "git pull";
           "gpush" = "git push";
           "gclone" = "git clone";
-
           "nix-rebuild" = "sudo nixos-rebuild switch --flake /home/trivaris/trivnix/#trivlaptop";
+          "ls" = "eza";
+          "grep" = "rg";
         };
+        functions.cd.body = "z $argv";
       };
     };
 
