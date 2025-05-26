@@ -46,13 +46,20 @@ in {
       '';
       functions.nix-rebuild = ''
         set flakePath ${flakePath}
-        set currentPath ./
-        echo "Updating and rebuilding from flake: $flakePath"
+        set currentPath (pwd)
+
+        set endColor "\e[0m"
+
+        echo "\e[32mUpdating and rebuilding from flake: $flakePath$endColor"
         begin
           cd $flakePath
+          echo "\e[32mPulling Git Changes $endColor"
           sudo git pull
+          echo "\e[32mUpdating dotfiles $endColor"
           nix flake lock --update-input dotfiles
+          echo "\e[32mRebuilding$endColor"
           sudo nixos-rebuild switch --flake $flakePath#trivlaptop
+          echo "\e[32mNavigating to original path: $currentPath$endColor"
           cd $currentPath
         end
       '';
