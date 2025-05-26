@@ -12,6 +12,9 @@
       ripgrep
       tldr
       zip
+      r-matrix
+      pipes-rs
+      rbonsai
   ];
   
 }
