@@ -4,7 +4,6 @@
 }:
   
 pkgs.rustPlatform.buildRustPackage {
-  
   pname = "r-matrix";
   version = "0.2.7";
 
@@ -25,5 +24,5 @@ pkgs.rustPlatform.buildRustPackage {
     homepage = "https://github.com/Fierthraix/rmatrix";
     license = pkgs.lib.licenses.gpl3Plus;
   };
-
+  
 }

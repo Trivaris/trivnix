@@ -15,6 +15,7 @@
       r-matrix
       pipes-rs
       rbonsai
+      rsclock
   ];
   
 }
