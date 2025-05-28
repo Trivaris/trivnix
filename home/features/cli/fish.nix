@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  flakePath,
+  inputs,
   ...
 }:
 with lib; let
@@ -45,7 +45,7 @@ in {
         end
       '';
       functions.nix-rebuild = ''
-        set flakePath ${flakePath}
+        set flakePath ${inputs.self}
         set currentPath (pwd)
 
         begin
