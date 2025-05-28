@@ -14,7 +14,7 @@
           format = "vfat";
           mountpoint = "/boot";
           extraArgs = [ "-F32" ];
-          options = [ "fmask=0077" "dmask=0077" ];
+          mountOptions = [ "fmask=0077" "dmask=0077" ];
         };
       };
 
@@ -29,5 +29,5 @@
 
     };
   };
-  
+
 }
