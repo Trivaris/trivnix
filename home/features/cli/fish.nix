@@ -51,7 +51,7 @@ in {
         begin
           cd $flakePath
           sudo git pull
-          nix flake update dotfiles
+          sude nix flake update dotfiles
           sudo nixos-rebuild switch --flake $flakePath#trivlaptop
           cd $currentPath
         end
