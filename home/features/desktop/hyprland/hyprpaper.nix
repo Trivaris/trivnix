@@ -15,7 +15,7 @@
         "${inputs.self}/resources/wp_3.png"
       ];
       wallpaper = [
-        "eDP-1,${inputs.self}/resources/"
+        "eDP-1,${inputs.self}/resources/wp_1.png"
       ];
     };
   };
