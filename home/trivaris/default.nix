@@ -8,6 +8,7 @@
     ./home.nix
     ./credentials.nix
     ./dotfiles
+    ./theme.nix
   ];
 
 }
