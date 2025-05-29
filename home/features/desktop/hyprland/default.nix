@@ -10,6 +10,7 @@ in {
 
   imports = [
     ./config.nix
+    ./hyprpaper.nix
   ];
 
   options.features.desktop.hyprland.enable = mkEnableOption "extended hyprland configuration";
