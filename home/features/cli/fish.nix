@@ -47,6 +47,7 @@ in {
       functions.nix-rebuild = ''
         set flakePath ${inputs.self}
         set currentPath (pwd)
+        echo flakePath: $flakePath
 
         begin
           cd $flakePath
