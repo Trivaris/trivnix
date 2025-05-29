@@ -59,7 +59,7 @@ in {
       '';
       functions.get-flakepath = ''
         echo ${inputs.self}
-      ''
+      '';
     };
   };
 
