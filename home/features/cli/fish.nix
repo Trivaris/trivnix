@@ -57,6 +57,9 @@ in {
           cd $currentPath
         end
       '';
+      functions.get-flakepath = ''
+        echo ${inputs.self}
+      ''
     };
   };
 

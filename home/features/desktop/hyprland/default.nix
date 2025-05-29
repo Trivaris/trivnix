@@ -9,8 +9,8 @@ with lib; let
 in {
 
   imports = [
-    ./config.nix
     ./hyprpaper.nix
+    ./config.nix
   ];
 
   options.features.desktop.hyprland.enable = mkEnableOption "extended hyprland configuration";
