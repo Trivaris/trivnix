@@ -1,4 +1,8 @@
 {
+  config,
+  inputs,
+  ...
+}: {
 
   imports = [ 
     ../common
@@ -8,5 +12,7 @@
     ./keymap.nix
     ./system-packages.nix
   ];
+
+  colorTheme = ../common/themes/material-green.nix;
   
 }
