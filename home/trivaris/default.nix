@@ -4,11 +4,10 @@
 }: { 
   
   imports = [
-    ../common
+    ../common/themes/material-green.nix
     ./home.nix
     ./credentials.nix
     ./dotfiles
-    ./theme.nix
   ];
 
 }

@@ -23,8 +23,8 @@
 
   outputs = {
     self,
-    nixpkgs,
     home-manager,
+    nixpkgs,
     disko,
     dotfiles,
     ...
@@ -40,39 +40,21 @@
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
-    hosts = [
-      {
-        name = "trivlaptop";
-        system = "x86_64-linux";
-        users = [ "trivaris" ];
-      }
-    ];
-
-    nixosConfigurations = builtins.listToAttrs (
-      map (host: {
-        name = host.name;
-        value = nixpkgs.lib.nixosSystem {
-          system = host.system;
-          specialArgs = {
-            inherit inputs outputs;
-            hostInfo = host;
-          };
-          modules = [
-            ./hosts/${host.name}
-            disko.nixosModules.disko
-          ];
-        };
-      }) hosts
-    );
-
   in {
-    inherit nixosConfigurations;
 
-    packages = forAllSystems (system:
-      import ./pkgs nixpkgs.legacyPackages.${system}
-    );
-
+    packages = forAllSystems ( system: import (inputs.self + "/pkgs/") nixpkgs.legacyPackages.${system} );
     overlays = import ./overlays { inherit inputs; };
+    
+    nixosConfigurations.trivlaptop = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs outputs;
+      };
+      modules = [
+        ./hosts/trivlaptop
+        disko.nixosModules.disko
+      ];
+    };
+
   };
 
 }

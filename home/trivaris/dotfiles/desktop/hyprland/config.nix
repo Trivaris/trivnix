@@ -1,7 +1,6 @@
 {
   ...
-}:
-let
+}: let
   bindings = import ./bindings.nix { inherit; };
 in {
 

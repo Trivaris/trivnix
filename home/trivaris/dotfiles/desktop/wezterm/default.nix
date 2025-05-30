@@ -1,39 +1,43 @@
-{ config, lib, pkgs, ... }:
-
-let
-  theme = config.colorTheme.colors.dark;
-
+{ 
+  config, 
+  lib, 
+  pkgs,
+  ... 
+}: with config.colors; let
   weztermColorScheme = {
     name = "Material Green";
-    foreground = theme.on_surface;
-    background = theme.background;
-    cursor_bg = theme.primary;
-    cursor_border = theme.primary;
-    cursor_fg = theme.on_primary;
-    selection_bg = theme.surface_container_high;
-    selection_fg = theme.on_surface;
+    foreground = dark.on_surface;
+    background = dark.background;
+    cursor_bg = dark.primary;
+    cursor_border = dark.primary;
+    cursor_fg = dark.on_primary;
+    selection_bg = dark.surface_container_high;
+    selection_fg = dark.on_surface;
     ansi = [
-      theme.surface_dim
-      theme.error
-      theme.primary
-      theme.tertiary
-      theme.tertiary
-      theme.secondary
-      theme.tertiary_fixed_dim
-      theme.on_surface_variant
+      dark.surface_dim
+      dark.error
+      dark.primary
+      dark.tertiary
+      dark.tertiary
+      dark.secondary
+      dark.tertiary_fixed_dim
+      dark.on_surface_variant
     ];
     brights = [
-      theme.surface_bright
-      theme.error_container
-      theme.primary_fixed_dim
-      theme.tertiary_fixed_dim
-      theme.on_tertiary
-      theme.secondary_fixed_dim
-      theme.on_secondary
-      theme.surface_container_highest
+      dark.surface_bright
+      dark.error_container
+      dark.primary_fixed_dim
+      dark.tertiary_fixed_dim
+      dark.on_tertiary
+      dark.secondary_fixed_dim
+      dark.on_secondary
+      dark.surface_container_highest
     ];
   };
-in {
+
+  toLuaList = list: "[" + lib.concatStringsSep ", " (map (x: ''"${x}"'') list) + "]";
+in
+{
   programs.wezterm = {
     enable = true;
     enableZshIntegration = true;
@@ -41,12 +45,21 @@ in {
 
     extraConfig = ''
       return {
-        color_scheme_dirs = { "/etc/wezterm/colors" },
-        color_scheme = "Material Green",
+        color_schemes = {
+          ["${weztermColorScheme.name}"] = {
+            foreground = "${weztermColorScheme.foreground}",
+            background = "${weztermColorScheme.background}",
+            cursor_bg = "${weztermColorScheme.cursor_bg}",
+            cursor_border = "${weztermColorScheme.cursor_border}",
+            cursor_fg = "${weztermColorScheme.cursor_fg}",
+            selection_bg = "${weztermColorScheme.selection_bg}",
+            selection_fg = "${weztermColorScheme.selection_fg}",
+            ansi = ${toLuaList weztermColorScheme.ansi},
+            brights = ${toLuaList weztermColorScheme.brights},
+          },
+        },
+        color_scheme = "${weztermColorScheme.name}",
       }
     '';
   };
-
-  environment.etc."wezterm/colors/material-green.toml".text =
-    pkgs.lib.generators.toTOML {} weztermColorScheme;
 }

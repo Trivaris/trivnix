@@ -13,6 +13,4 @@
     ./system-packages.nix
   ];
 
-  colorTheme = ../common/themes/material-green.nix;
-  
 }
