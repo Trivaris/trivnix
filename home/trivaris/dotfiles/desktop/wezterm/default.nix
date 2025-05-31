@@ -4,7 +4,7 @@
   pkgs,
   ... 
 }: with config.colors; {
-  
+
   programs.wezterm = {
     enable = true;
     enableZshIntegration = true;
@@ -38,7 +38,7 @@
         dark.on_secondary
         dark.surface_container_highest
       ];
-    }
+    };
   };
 
 }
