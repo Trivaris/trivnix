@@ -97,7 +97,6 @@ homeManagerConfiguration {
   modules = [
     # Flake entrypoint
     inputs.stylix.homeModules.stylix
-    inputs.sops-nix.homeManagerModules.sops
     inputs.spicetify-nix.homeManagerModules.spicetify
     inputs.nvf.homeManagerModules.default
 

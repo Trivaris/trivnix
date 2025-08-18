@@ -78,8 +78,6 @@ nixosSystem {
     # Flake NixOS entrypoint
     inputs.disko.nixosModules.disko
     inputs.home-manager.nixosModules.home-manager
-    inputs.nixos-wsl.nixosModules.default
-    inputs.sops-nix.nixosModules.sops
     inputs.nur.modules.nixos.default
     inputs.stylix.nixosModules.stylix
     inputs.nix-minecraft.nixosModules.minecraft-servers
@@ -97,7 +95,6 @@ nixosSystem {
       # Expose flake args to within the home-manager config
       config.home-manager = {
         sharedModules = [
-          inputs.sops-nix.homeManagerModules.sops
           inputs.spicetify-nix.homeManagerModules.spicetify
           inputs.nvf.homeManagerModules.default
         ];
